@@ -6,13 +6,15 @@ import (
 	"net/http"
 )
 
+var task string
+
 func getTask(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		http.Error(w, "Only GET allowed", http.StatusMethodNotAllowed)
 		return
 	}
 
-	fmt.Fprintln(w, "hello, task") 
+	fmt.Fprintf(w, "hello, %s", task)
 }
 
 func postTask(w http.ResponseWriter, r *http.Request) {
@@ -32,12 +34,14 @@ func postTask(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	task = body.Task
+
 	fmt.Fprintf(w, "Task saved: %s\n", body.Task)
 }
 
 func main() {
-	http.HandleFunc("/task", postTask)
 	http.HandleFunc("/", getTask)
+	http.HandleFunc("/task", postTask)
 
 	fmt.Println("Server running on http://localhost:8080")
 	http.ListenAndServe(":8080", nil)
