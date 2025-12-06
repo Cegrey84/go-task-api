@@ -1,0 +1,19 @@
+POST http://localhost:8080/task
+Content-Type: application/json
+
+{
+  "text": "Купить молоко"
+}
+
+###
+
+PATCH http://localhost:8080/task/1
+Content-Type: application/json
+
+{
+  "text": "Купить молоко и хлеб"
+}
+
+###
+
+DELETE http://localhost:8080/task/1

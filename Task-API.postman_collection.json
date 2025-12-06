@@ -1,0 +1,33 @@
+{
+  "info": {
+    "name": "Task API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET All Tasks",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8080/"
+      }
+    },
+    {
+      "name": "POST Create Task",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"text\": \"Test task\"}"
+        },
+        "url": "http://localhost:8080/task"
+      }
+    }
+  ]
+}
