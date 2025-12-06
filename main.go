@@ -3,9 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gorilla/mux"
 	"net/http"
 	"strconv"
-	"github.com/gorilla/mux"
 )
 
 type Task struct {
@@ -95,7 +95,7 @@ func deleteTask(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := mux.NewRouter()
-	r.HandleFunc("/", getTasks).Methods("GET")
+	r.HandleFunc("/tasks", getTasks).Methods("GET")
 	r.HandleFunc("/task", postTask).Methods("POST")
 	r.HandleFunc("/task/{id}", patchTask).Methods("PATCH")
 	r.HandleFunc("/task/{id}", deleteTask).Methods("DELETE")
