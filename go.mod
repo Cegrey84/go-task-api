@@ -1,4 +1,4 @@
-module myapi
+module github.com/Cegrey84/go-task-api
 
 go 1.24.4
 
